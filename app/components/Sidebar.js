@@ -6,12 +6,9 @@ import SidebarSubMenu from './SidebarSubMenu'
 function Sidebar({toggleValue}) {
   return (
     <>
-      <div className='flex'>
-        <SidebarIcon />
-        {
-          toggleValue && <SidebarSubMenu />
-        }
-        
+      <div className='sticky top-0 flex flex-row'>
+        <SidebarIcon toggleValue={toggleValue}/>
+        <SidebarSubMenu toggleValue={toggleValue} /> 
       </div>
     </>
   )

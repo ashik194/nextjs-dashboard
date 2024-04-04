@@ -15,7 +15,7 @@ function Header(props) {
         setUserDetails(!userDetails)
     }
   return (
-    <div className='sticky top-0 bg-white min-h-[60px] z-50 border-b border-b-gray-300 flex justify-between items-center px-5 gap-4 h-16'>
+    <div className='sticky top-0 bg-white min-h-[70px] z-50 border-b border-b-gray-300 flex justify-between items-center px-5 gap-4'>
       <div className='flex justify-between'>
         <div>
           <button  onClick={menuToggle} className="hidden sm:block nav-link p-2 waves-effect me-auto">

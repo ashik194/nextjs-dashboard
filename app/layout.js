@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
-  const [toggleValue, setToggleValue] = useState(false)
+  const [toggleValue, setToggleValue] = useState(true)
     const handleToggleValue = (toggle) => {
         setToggleValue(toggle)
     }
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="flex ">
-          <div className="min-w-[50px] w-[300px] max-w-[300px]">
+          <div className={toggleValue?"min-w-[50px]":"max-w-[290px]"}>
             <Sidebar toggleValue={toggleValue} />
           </div>
           <main className="flex-1">
