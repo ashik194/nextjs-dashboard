@@ -54,7 +54,7 @@ function Dashboard() {
   )
   return (
     <>
-        <div className='px-6 py-2 mt-2 border border-t-0 border-b-[#e9ebec] bg-white'>
+        <div className='px-6 py-2 mt-2 border-b border-b-[#e9ebec] bg-white'>
           <h4 className='text-[15px] font-bold uppercase '>Dashboard</h4>
       </div>
 

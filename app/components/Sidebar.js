@@ -1,13 +1,17 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import SidebarIcon from './SidebarIcon'
 import SidebarSubMenu from './SidebarSubMenu'
 
-function Sidebar() {
+function Sidebar({toggleValue}) {
   return (
     <>
       <div className='flex'>
         <SidebarIcon />
-        <SidebarSubMenu />
+        {
+          toggleValue && <SidebarSubMenu />
+        }
+        
       </div>
     </>
   )
