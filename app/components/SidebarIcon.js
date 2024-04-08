@@ -6,10 +6,15 @@ import logo from "@/public/logo-sm.png"
 import Link from 'next/link';
 import Image from 'next/image';
 
-function SidebarIcon({ toggleValue }) {
+function SidebarIcon({ toggleValue, onUpdateSelected  }) {
   const [selected, setSelected] = useState('dashboard');
+  onUpdateSelected(selected);
 
-
+  const handleSelectedChange = (e) => {
+    setSelected(e);
+    onUpdateSelected(e);
+  }
+ 
   return (
     <div className='bg-white w-[70px] drop-shadow min-h-screen'>
       <div class="flex flex-col items-center pt-6">
@@ -23,7 +28,7 @@ function SidebarIcon({ toggleValue }) {
             selected==='dashboard'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
             :'h-10 w-10 rounded flex items-center justify-center'} 
             id='dashboard'
-            onClick={()=>setSelected('dashboard')}>
+            onClick={()=>handleSelectedChange('dashboard')}>
             {
                 selected === 'dashboard' ? (
                   <RiDashboard2Line style={{ color: '#25a0e2' }} size={20} />
@@ -37,7 +42,7 @@ function SidebarIcon({ toggleValue }) {
             selected==='app'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
             :'h-10 w-10 rounded flex items-center justify-center'} 
             id='app'
-            onClick={()=>setSelected('app')}>
+            onClick={()=>handleSelectedChange('app')}>
             {
                 selected === 'app' ? (
                   <RiApps2Line style={{ color: '#25a0e2' }} size={20} />
@@ -51,7 +56,7 @@ function SidebarIcon({ toggleValue }) {
             selected==='layout'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
             :'h-10 w-10 rounded flex items-center justify-center'} 
             id='layout'
-            onClick={()=>setSelected('layout')}>
+            onClick={()=>handleSelectedChange('layout')}>
             {
                 selected === 'layout' ? (
                   <RiLayout2Line style={{ color: '#25a0e2' }} size={20} />
