@@ -5,9 +5,10 @@ import { RiLayout2Line } from "react-icons/ri";
 import logo from "@/public/logo-sm.png"
 import Link from 'next/link';
 import Image from 'next/image';
-import Dashboard from '../(admin)/admin/page';
 
 function SidebarIcon({ toggleValue }) {
+  const [selected, setSelected] = useState('dashboard');
+
 
   return (
     <div className='bg-white w-[70px] drop-shadow min-h-screen'>
@@ -18,24 +19,52 @@ function SidebarIcon({ toggleValue }) {
 
         <div className='hover:cursor-pointer flex flex-col gap-3'>
 
-          <div className='h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center' id='dashboard'>
-            <RiDashboard2Line style={{ color: '#25a0e2' }} size={20} />
+          <div className={
+            selected==='dashboard'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
+            :'h-10 w-10 rounded flex items-center justify-center'} 
+            id='dashboard'
+            onClick={()=>setSelected('dashboard')}>
+            {
+                selected === 'dashboard' ? (
+                  <RiDashboard2Line style={{ color: '#25a0e2' }} size={20} />
+                ) : (
+                  <RiDashboard2Line style={{ color: '#6D7080' }} size={20} />
+                )
+              }
           </div>
 
-          <div className=' h-10 w-10 active:bg-[#DFF1FB] rounded flex items-center justify-center' id='app'>
-            <RiApps2Line style={{ color: '#6D7080' }} size={20} />
+          <div className={
+            selected==='app'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
+            :'h-10 w-10 rounded flex items-center justify-center'} 
+            id='app'
+            onClick={()=>setSelected('app')}>
+            {
+                selected === 'app' ? (
+                  <RiApps2Line style={{ color: '#25a0e2' }} size={20} />
+                ) : (
+                  <RiApps2Line style={{ color: '#6D7080' }} size={20} />
+                )
+              }
           </div>
 
-          <div className=' h-10 w-10 active:bg-[#DFF1FB] rounded flex items-center justify-center' id='app'>
-            <RiLayout2Line style={{ color: '#6D7080' }} size={20} />
+          <div className={
+            selected==='layout'? 'h-10 w-10 bg-[#DFF1FB] rounded flex items-center justify-center'
+            :'h-10 w-10 rounded flex items-center justify-center'} 
+            id='layout'
+            onClick={()=>setSelected('layout')}>
+            {
+                selected === 'layout' ? (
+                  <RiLayout2Line style={{ color: '#25a0e2' }} size={20} />
+                ) : (
+                  <RiLayout2Line style={{ color: '#6D7080' }} size={20} />
+                )
+              }
           </div>
+
         </div>
 
       </div>
-
-
-
-      {/*<BiSolidDashboard />*/}
+      
     </div>
   )
 }
