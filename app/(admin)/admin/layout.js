@@ -1,6 +1,8 @@
 'use client'
 import { Inter } from "next/font/google";
-import "./globals.css";
+import Sidebar from "../../components/Sidebar";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,8 +20,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-          {children}
+        <div className="flex ">
+          <div className={toggleValue?"min-w-[50px]":"max-w-[290px]"}>
+            <Sidebar toggleValue={toggleValue} />
+          </div>
+          <main className="flex-1">
+            <Header handleToggleValue={handleToggleValue}/>
+            {children}
+            <Footer />
+          </main>
+        </div>
       </body>
     </html>
   );
