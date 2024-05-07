@@ -1,19 +1,37 @@
 
 import { Link } from '@inertiajs/react';
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { CgMenuLeft } from "react-icons/cg";
+import { LuMoveRight } from "react-icons/lu";
 import man from "../../../public/man.jpg";
 import { useState } from 'react';
+import { router } from '@inertiajs/react' 
 
 function Header(props) {
     const [toggle, setToggle] = useState(false)
     const menuToggle = () => {
         setToggle(!toggle)
-        props.handleToggleValue(toggle)
+        props.handleToggleValue(!toggle)
     }
     const [userDetails, setUserDetails] = useState(false)
     const userInfo = () => {
         setUserDetails(!userDetails)
     }
+
+
+    const handlePostRequest = () => {
+         
+    
+        // Send a POST request using Inertia.js
+        Inertia.post(route('your.post.route'), postData);
+      };
+
+      function handleSubmit() {
+        console.log("coming here");
+        router.post('/logout');
+    }
+
   return (
     <>
     
@@ -27,7 +45,11 @@ function Header(props) {
     <span className="sr-only">Menu Toggle Button</span>
     <span className="flex items-center justify-center h-6 w-6">
         {/* <i className="ph ph-list text-2xl"></i> */}
-        <HiMiniBars3BottomLeft className='text-2xl' />
+        {
+            toggle==false? <CgMenuLeft className='
+            text-[#878A99] text-2xl' />
+            : <LuMoveRight className='text-[#878A99] text-2xl' />
+        }
     </span>
 </button>
 </div>
@@ -97,8 +119,9 @@ function Header(props) {
         <a className="flex items-center py-2 px-3 rounded-md text-sm text-gray-100 hover:bg-gray-800" href="#">
             Lock Account
         </a> */}
-        <Link className="flex items-center py-2 px-3 rounded-md text-sm text-gray-100 hover:bg-gray-800" href="#">
-            Log Out
+        <Link className="flex items-center py-2 px-3 rounded-md text-sm text-gray-100 hover:bg-gray-800" 
+        method="post" href={route('logout')} as="button">
+            Log Out 
         </Link>
     </div>
 </div>
